@@ -193,7 +193,7 @@ var Get = (function (_Call) {
 
 //Here is the API base adress
 
-var apiURIStart = 'http://api.giphy.com/v1/gifs/search?q=';
+var apiURIStart = 'https://api.giphy.com/v1/gifs/search?q=';
 var apiURLKey = '&limit=80&api_key=dc6zaTOxFJmzC';
 
 //Number of Gifs on the page. Choose between 9 & 12.

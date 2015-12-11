@@ -175,7 +175,7 @@ class Get extends Call{
 //Script for the page
 
 //Here is the API base adress
-const apiURIStart = 'http://api.giphy.com/v1/gifs/search?q=';
+const apiURIStart = 'https://api.giphy.com/v1/gifs/search?q=';
 const apiURLKey = '&limit=80&api_key=dc6zaTOxFJmzC';
 
 //Number of Gifs on the page. Choose between 9 & 12.

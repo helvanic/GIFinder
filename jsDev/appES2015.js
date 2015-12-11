@@ -308,7 +308,7 @@ let display = function(){
   // console.log(gifsList);
 
   for(let i=0; i<=(GIFS_ON_PAGE-1); i++){
-    if(length<=(GIFS_ON_PAGE-1)){ //If list under 11 elements, no need for random.
+    if(length<=(GIFS_ON_PAGE)){ //No need for random because it doesn't even fully populate the page.
       document.getElementById('gallery').innerHTML+=gifsList[i].render();
     }else{//Random picking
       let random = randomNumber(gifsDisplayed, length); // Create a random number that's not in this array

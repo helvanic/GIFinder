@@ -56,7 +56,7 @@ class Gif extends Frame{
         <div class="col-12 col-m-4 gif ">
           <img src="${this.url}" class="gif-12"></img>
           <div class="overlay">
-            <div class="imgWrapper"><img src="../img/download.png" alt="download" class="download"></img></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
@@ -73,7 +73,7 @@ class Gif extends Frame{
         <div class="col-12 col-m-4 gif ">
           <img src="${this.url}" class="gif-18"></img>
           <div class="overlay">
-            <div class="imgWrapper"><img src="../img/download.png" alt="download" class="download"></img></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
@@ -90,7 +90,7 @@ class Gif extends Frame{
         <div class="col-12 col-m-4 gif ">
           <img src="${this.url}" class="gif-50"></img>
           <div class="overlay">
-            <div class="imgWrapper"><img src="../img/download.png" alt="download" class="download"></img></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
@@ -107,7 +107,7 @@ class Gif extends Frame{
         <div class="col-12 col-m-4 gif ">
           <img src="${this.url}" class="gif-9"></img>
           <div class="overlay">
-            <div class="imgWrapper"><img src="../img/download.png" alt="download" class="download"></img></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
@@ -141,7 +141,7 @@ class Gif extends Frame{
         <div class="col-12 gif ">
           <img src="${this.url}" class="gif-1"></img>
           <div class="overlay">
-            <div class="imgWrapper"><img src="../img/download.png" alt="download" class="download"></img></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">

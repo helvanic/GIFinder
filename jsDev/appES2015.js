@@ -8,7 +8,7 @@ class List{
   }
 
   get(n){
-    return this.list.slice(0,(n-1));
+    return this.list.slice(0,(n));
   }
 
   getLength(){

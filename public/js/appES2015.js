@@ -23,7 +23,7 @@ var List = (function () {
   _createClass(List, [{
     key: "get",
     value: function get(n) {
-      return this.list.slice(0, n - 1);
+      return this.list.slice(0, n);
     }
   }, {
     key: "getLength",

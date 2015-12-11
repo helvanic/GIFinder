@@ -815,3 +815,8 @@ footer a {
 .gif .overlay .imgWrapper:hover {
   background-color: grey;
   cursor: pointer; }
+
+.gif .overlay textarea {
+  display: none;
+  margin-top: 15px;
+  font-size: 1.5em; }

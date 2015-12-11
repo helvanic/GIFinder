@@ -96,10 +96,13 @@ var Frame = (function () {
 var Gif = (function (_Frame) {
   _inherits(Gif, _Frame);
 
-  function Gif(search, url) {
+  function Gif(search, url, number) {
     _classCallCheck(this, Gif);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Gif).call(this, name, url));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Gif).call(this, name, url));
+
+    _this.number = number;
+    return _this;
   }
 
   _createClass(Gif, [{
@@ -107,22 +110,22 @@ var Gif = (function (_Frame) {
     value: function render() {
       switch (GIFS_ON_PAGE) {
         case 12:
-          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 18:
-          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-18\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-18\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 50:
-          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-50\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-50\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 9:
-          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-9\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-9\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 6:
-          return "\n        <div class=\"col-12 col-m-4 gif\">\n          <img src=\"" + this.url + "\" class=\"gif-6\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif\">\n          <img src=\"" + this.url + "\" class=\"gif-6\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 1:
-          return "\n        <div class=\"col-12 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-1\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\"><img src=\"../img/link.png\" alt=\"link\"></img></div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-1\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><img src=\"../img/download.png\" alt=\"download\"></img></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         default:
           return "<h1 class=\"article\">BUG OMG</h1>";
@@ -218,13 +221,21 @@ var currentOverlay = [];
 
 var pageLoaded = 0;
 
+//Make an element appear with data and executes a callback after a selected time
+var textAppear = function textAppear(el, callback, time) {
+  Velocity(el, "fadeIn", {
+    duration: time
+  });
+  setTimeout(callback, time);
+};
 //Add events listeners for overlay to be a thing
 var overlayListeners = function overlayListeners() {
   var gifsDivs = document.querySelectorAll('.gif .gif-' + GIFS_ON_PAGE);
-  console.log(gifsDivs);
+  //console.log(gifsDivs);
 
-  for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
-    gifsDivs[i].addEventListener('mouseover', function () {
+  var _loop = function _loop(i) {
+    var gif = gifsDivs[i];
+    gif.addEventListener('mouseover', function () {
       for (var j in currentOverlay) {
         Velocity(currentOverlay[j], "fadeOut", {
           duration: 1
@@ -238,6 +249,19 @@ var overlayListeners = function overlayListeners() {
       // console.log("You're hovering a div : ");
       // console.log(this);
     });
+    //Download part :
+    var link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
+    link.addEventListener('click', function () {
+      var textarea = this.parentNode.querySelectorAll('textarea')[0];
+      textAppear(textarea, function () {
+        textarea.innerHTML = "" + gif.getAttribute("src");
+        textarea.select();
+      }, 200);
+    });
+  };
+
+  for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
+    _loop(i);
   }
 };
 
@@ -290,16 +314,17 @@ var display = function display() {
 var listBuild = function listBuild(gifsReceived) {
   //Here, we clear the list of gifs in memory
   gifs.clear();
-
+  var i = 0;
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;
   var _iteratorError2 = undefined;
 
   try {
     for (var _iterator2 = gifsReceived.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      var gif = _step2.value;
+      var _gif = _step2.value;
 
-      gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url));
+      gifs.addOne(new Gif(searchInput.value, _gif.images.fixed_height.url, i));
+      i++;
     }
   } catch (err) {
     _didIteratorError2 = true;

@@ -42,8 +42,9 @@ class Frame{
 }
 
 class Gif extends Frame{
-  constructor(search, url){
+  constructor(search, url, number){
     super(name, url);
+    this.number = number;
   }
 
   render(){
@@ -55,7 +56,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-12"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -68,7 +73,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-18"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -81,7 +90,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-50"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -94,7 +107,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-9"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -107,7 +124,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-6"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -120,7 +141,11 @@ class Gif extends Frame{
           <img src="${this.url}" class="gif-1"></img>
           <div class="overlay">
             <div class="imgWrapper"><img src="../img/download.png" alt="download"></img></div>
-            <div class="imgWrapper"><img src="../img/link.png" alt="link"></img></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
           </div>
         </div>
           `
@@ -202,13 +227,25 @@ let currentOverlay = [];
 let pageLoaded = 0;
 
 
+//Make an element appear with data and executes a callback after a selected time
+let textAppear = function(el, callback, time){
+  Velocity(
+    el,
+    "fadeIn",
+    {
+      duration : time
+    }
+  );
+  setTimeout(callback, time)
+}
 //Add events listeners for overlay to be a thing
 let overlayListeners = function(){
   let gifsDivs = document.querySelectorAll('.gif .gif-'+GIFS_ON_PAGE);
-  console.log(gifsDivs);
+  //console.log(gifsDivs);
 
   for(let i=0;i<=(GIFS_ON_PAGE-1);i++){
-    gifsDivs[i].addEventListener('mouseover', function(){
+    let gif = gifsDivs[i];
+    gif.addEventListener('mouseover', function(){
         for(let j in currentOverlay){
           Velocity(
             currentOverlay[j],
@@ -229,6 +266,16 @@ let overlayListeners = function(){
         );
         // console.log("You're hovering a div : ");
         // console.log(this);
+      });
+      //Download part :
+      let link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
+      link.addEventListener('click', function(){
+        let textarea = this.parentNode.querySelectorAll('textarea')[0];
+        textAppear(textarea, function(){
+          textarea.innerHTML = ""+gif.getAttribute("src");
+          textarea.select();
+        }, 200);
+
       });
   }
 }
@@ -280,9 +327,10 @@ let display = function(){
 let listBuild = function(gifsReceived){
   //Here, we clear the list of gifs in memory
   gifs.clear();
-
+  let i = 0;
   for(let gif of gifsReceived.data){
-    gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url));
+    gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url,i));
+    i++;
   }
   display();
 }

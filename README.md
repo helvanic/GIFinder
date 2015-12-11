@@ -3,7 +3,7 @@ Allows you to search for GIFS on the Giphy API. Next version will allow to creat
 Everything is furnished in an simple express server, but you can get the front-end code only in the public folder.
 
 ## What's new?
-In this project, managed to get GIFs from the Giphy API which you can find here : https://github.com/giphy/GiphyAPI
+In this project, I managed to get GIFs from the Giphy API which you can find here : https://github.com/giphy/GiphyAPI
 You can easely get the gif url to use it in anywhere. You can also download it directly (if you're on Chrome, else you'll be redirected to a page containing the gif. Just right-click => Save image).
 
 I also used ES2015 class system. You can find the ES2015 in the jsDev folder. To be usable on the browser, i used babel on Gulp.

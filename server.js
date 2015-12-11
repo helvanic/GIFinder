@@ -11,7 +11,7 @@ app.get('/', function(req, res){
 });
 
 //Server start-up
-app.listen(3000 || process.env.PORT, function(){
+app.listen(process.env.PORT || 3000 , function(){
   if(process.env.PORT){
     console.log("Listening on "+process.env.PORT);
   }else{

@@ -1,0 +1,19 @@
+{
+  "name": "gifinder",
+  "version": "1.0.0",
+  "description": "little application to retrieve gifs on giphy",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-sass": "^2.1.1"
+  }
+}

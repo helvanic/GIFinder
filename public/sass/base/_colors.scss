@@ -1,0 +1,30 @@
+$greyblue : #3E606F;
+$darkgreyblue:#193441;
+$beige : #d1dbbd;
+$kaki : #91aa9d;
+$blancCasse : #FCFFF5;
+$noir : #000;
+
+
+.greyblue{
+	background-color: $greyblue;
+	//color : #d1dbbd;
+	color : $blancCasse;
+}
+
+.darkgreyblue{
+	background-color: $darkgreyblue;
+}
+
+.kaki{
+	background-color: $kaki;
+}
+
+.beige{
+	background-color: $beige;
+	color : #575939;
+}
+
+.blancCasse{
+	background-color: $blancCasse;
+}

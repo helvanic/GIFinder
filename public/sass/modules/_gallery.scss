@@ -1,0 +1,59 @@
+.gallery{
+  overflow : scroll;
+}
+
+.gif{
+  background : url('../img/loading.gif') center no-repeat;
+  height : 250px;
+}
+.gif img{
+  min-width: 200px;
+  height: auto;
+  display : table;
+  margin : 0 auto;
+}
+
+.gif .overlay {
+  display : none;
+  position :absolute;
+  top : 0;
+  left : 0;
+  height : 100%;
+  width : 100%;
+  background-color: rgba(0,0,0,0.5);
+
+  // Text
+  font-family: "Museo Sans" sans-serif;
+  padding : 10px;
+  text-align: center;
+  color : white;
+  cursor : default;
+}
+
+.gif .overlay .subtitle{
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 250px;
+  cursor : pointer;
+}
+
+.gif .overlay .imgWrapper{
+  width : 80px;
+  height : 80px;
+  padding-top : 8px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  //Transitions
+  transition: all 0.3s;
+}
+
+.gif .overlay img{
+  min-width: 0px;
+  width : 64px;
+  height : 64px;
+}
+
+.gif .overlay .imgWrapper:hover{
+  background-color: grey;
+  cursor : pointer;
+}

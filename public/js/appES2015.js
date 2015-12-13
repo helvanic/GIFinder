@@ -111,7 +111,7 @@ var Gif = (function (_Frame) {
     value: function render() {
       switch (GIFS_ON_PAGE) {
         case 12:
-          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + "><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 18:
           return "\n        <div class=\"col-12 col-m-4 gif \">\n          <img src=\"" + this.url + "\" class=\"gif-18\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + "><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n          </div>\n        </div>\n          ";
@@ -234,7 +234,7 @@ var overlayListeners = function overlayListeners() {
   var gifsDivs = document.querySelectorAll('.gif .gif-' + GIFS_ON_PAGE);
   //console.log(gifsDivs);
 
-  var _loop = function _loop(i) {
+  for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
     var gif = gifsDivs[i];
     gif.addEventListener('mouseover', function () {
       for (var j in currentOverlay) {
@@ -254,17 +254,15 @@ var overlayListeners = function overlayListeners() {
     var link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
     link.addEventListener('click', function () {
       var textarea = this.parentNode.querySelectorAll('textarea')[0];
+      var downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+      console.log(downloadUrl);
       textAppear(textarea, function () {
-        textarea.innerHTML = "" + gif.getAttribute("src");
+        textarea.innerHTML = "" + downloadUrl;
         textarea.select();
       }, 200);
     });
 
     //Download part is directly done in html
-  };
-
-  for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
-    _loop(i);
   }
 };
 
@@ -324,9 +322,9 @@ var listBuild = function listBuild(gifsReceived) {
 
   try {
     for (var _iterator2 = gifsReceived.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      var _gif = _step2.value;
+      var gif = _step2.value;
 
-      gifs.addOne(new Gif(searchInput.value, _gif.images.fixed_height.url, _gif.images.original.url, i));
+      gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url, gif.images.original.url, i));
       i++;
     }
   } catch (err) {

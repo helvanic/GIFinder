@@ -56,7 +56,7 @@ class Gif extends Frame{
         <div class="col-12 col-m-4 gif ">
           <img src="${this.url}" class="gif-12"></img>
           <div class="overlay">
-            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl}><img src="../img/download.png" alt="download" class="download"></img></a></div>
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
             <div class="imgWrapper">
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
@@ -272,8 +272,10 @@ let overlayListeners = function(){
       let link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
       link.addEventListener('click', function(){
         let textarea = this.parentNode.querySelectorAll('textarea')[0];
+        let downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+        console.log(downloadUrl);
         textAppear(textarea, function(){
-          textarea.innerHTML = ""+gif.getAttribute("src");
+          textarea.innerHTML = ""+downloadUrl;
           textarea.select();
         }, 200);
 

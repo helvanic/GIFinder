@@ -731,14 +731,19 @@ footer a {
   padding: 10px;
   text-align: center; }
 
-.header {
+.header .title {
   background-color: #E64C66; }
+
+.header {
+  padding: 0;
+  background-color: #1BBC9B; }
 
 .article .title {
   font-family: "Montserrat-Bold", sans-serif;
   margin-bottom: 15px;
   font-size: 8em;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 15px; }
 
 .article .subtitle {
   margin-bottom: 10px;
@@ -746,7 +751,7 @@ footer a {
   text-align: center; }
 
 .article .subsubtitle {
-  margin-bottom: 5px;
+  margin: 15px 0;
   font-size: 1.2em;
   text-align: center; }
 
@@ -763,8 +768,8 @@ footer a {
 
 /* Separator */
 .separator {
-  margin: 45px auto;
-  height: 1px;
+  margin: 30px auto;
+  height: 30px;
   background: transparent; }
 
 .videoContainer {
@@ -855,3 +860,10 @@ footer a {
   display: none;
   margin-top: 15px;
   font-size: 1.5em; }
+
+/* ******* Slider text color ******* */
+.noUi-pips {
+  color: #FFFFFF !important; }
+
+.noUi-marker {
+  background: #FFFFFF !important; }

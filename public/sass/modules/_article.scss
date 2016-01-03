@@ -6,8 +6,13 @@
   text-align: center;
 }
 
-.header{
+.header .title{
   background-color: $pink;
+}
+
+.header{
+  padding : 0;
+  background-color: $green;
 }
 
 .article .title{
@@ -15,6 +20,7 @@
   margin-bottom : 15px;
   font-size: 8em;
   text-align: center;
+  padding-bottom: 15px;
 }
 
 .article .subtitle{
@@ -24,7 +30,7 @@
 }
 
 .article .subsubtitle{
-  margin-bottom: 5px;
+  margin: 15px 0;
   font-size: 1.2em;
   text-align: center;
 }

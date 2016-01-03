@@ -138,7 +138,7 @@ class Gif extends Frame{
       case 1 :
         return(
           `
-        <div class="col-12 gif ">
+        <div class="col-12 col-m-4 col-center gif ">
           <img src="${this.url}" class="gif-1"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>

@@ -530,10 +530,27 @@ html, body {
   display: none; }
 
 /*   Base    */
+.greyblue {
+  background-color: #3E606F;
+  color: #FCFFF5; }
+
+.darkgreyblue {
+  background-color: #193441; }
+
+.kaki {
+  background-color: #91aa9d; }
+
+.beige {
+  background-color: #d1dbbd;
+  color: #575939; }
+
+.blancCasse {
+  background-color: #FCFFF5; }
+
 /*  Page base  */
 html, body {
-  background-color: black;
-  color: white; }
+  background-color: #2D3E50;
+  color: #FFFFFF; }
 
 footer {
   position: relative;
@@ -597,23 +614,6 @@ footer a {
   /*a name to be used later*/
   src: url("../fonts/Montserrat-Black.otf");
   /*URL to font*/ }
-
-.greyblue {
-  background-color: #3E606F;
-  color: #FCFFF5; }
-
-.darkgreyblue {
-  background-color: #193441; }
-
-.kaki {
-  background-color: #91aa9d; }
-
-.beige {
-  background-color: #d1dbbd;
-  color: #575939; }
-
-.blancCasse {
-  background-color: #FCFFF5; }
 
 /*   Modules   */
 .menu-buttons {
@@ -731,6 +731,9 @@ footer a {
   padding: 10px;
   text-align: center; }
 
+.header {
+  background-color: #E64C66; }
+
 .article .title {
   font-family: "Montserrat-Bold", sans-serif;
   margin-bottom: 15px;
@@ -762,8 +765,7 @@ footer a {
 .separator {
   margin: 45px auto;
   height: 1px;
-  background: #717171;
-  border-bottom: 1px solid #313030; }
+  background: transparent; }
 
 .videoContainer {
   width: 100%;

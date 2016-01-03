@@ -568,6 +568,36 @@ footer a {
   src: url("../fonts/museosans500/MuseoSans_500_Italic-webfont.ttf");
   /*URL to font*/ }
 
+@font-face {
+  font-family: 'Museo Sans Bold';
+  /*a name to be used later*/
+  src: url("../fonts/MuseoSans900.otf");
+  /*URL to font*/ }
+
+@font-face {
+  font-family: 'Monserrat';
+  /*a name to be used later*/
+  src: url("../fonts/Montserrat-Regular.otf");
+  /*URL to font*/ }
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  /*a name to be used later*/
+  src: url("../fonts/Montserrat-Light.otf");
+  /*URL to font*/ }
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  /*a name to be used later*/
+  src: url("../fonts/Montserrat-Bold.otf");
+  /*URL to font*/ }
+
+@font-face {
+  font-family: 'Montserrat-Black';
+  /*a name to be used later*/
+  src: url("../fonts/Montserrat-Black.otf");
+  /*URL to font*/ }
+
 .greyblue {
   background-color: #3E606F;
   color: #FCFFF5; }
@@ -697,13 +727,14 @@ footer a {
 
 /* Article */
 .article {
-  font-family: "Museo Sans" sans-serif;
+  font-family: "Monserrat", sans-serif;
   padding: 10px;
   text-align: center; }
 
 .article .title {
+  font-family: "Montserrat-Bold", sans-serif;
   margin-bottom: 15px;
-  font-size: 2em;
+  font-size: 8em;
   text-align: center; }
 
 .article .subtitle {

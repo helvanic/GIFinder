@@ -15,12 +15,25 @@
   background-color: $green;
 }
 
+
 .article .title{
   font-family: "Montserrat-Bold", sans-serif;
   margin-bottom : 15px;
-  font-size: 8em;
+  font-size: 4em;
   text-align: center;
   padding-bottom: 15px;
+}
+
+@media only screen and (min-width : $medium){
+  .article .title{
+    font-size: 6em;
+  }
+}
+
+@media only screen and (min-width : $large){
+  .article .title{
+    font-size: 8em;
+  }
 }
 
 .article .subtitle{

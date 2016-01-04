@@ -741,9 +741,17 @@ footer a {
 .article .title {
   font-family: "Montserrat-Bold", sans-serif;
   margin-bottom: 15px;
-  font-size: 8em;
+  font-size: 4em;
   text-align: center;
   padding-bottom: 15px; }
+
+@media only screen and (min-width: 960px) {
+  .article .title {
+    font-size: 6em; } }
+
+@media only screen and (min-width: 1024px) {
+  .article .title {
+    font-size: 8em; } }
 
 .article .subtitle {
   margin-bottom: 10px;

@@ -1,0 +1,28 @@
+.form{
+  position : fixed;
+  top : 15%;
+  left : 0;
+  height : 100%;
+  background-color: $white;
+  display : none;
+  z-index: 2;
+  color : $darkblue;
+}
+
+
+
+@media only screen and (min-width : 960px){
+  .form{
+    position : fixed;
+    height : 75%;
+    top : 15%;
+    left : 25%;
+  }
+}
+
+
+.inscription{
+  position :fixed;
+  top : 15px;
+  right : 15%;
+}

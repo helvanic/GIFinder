@@ -424,3 +424,48 @@ slider.noUiSlider.on('update', function (values, handle) {
 });
 
 //Build : electron-packager "C:\Users\Victor\Desktop\Agence DevWeb\Electron\Gifinder-ES2015\app" Gifinder --platform=all --arch=all --version=0.35.0
+
+/* ***************** FORM PART ****************** */
+
+/* ****** Inscription Form fadeIn ****** */
+var inscription = document.getElementById('inscription');
+var incsriptionForm = document.getElementById('inscriptionForm');
+
+inscription.addEventListener('click', function () {
+  Velocity(inscriptionForm, "fadeIn", {
+    duration: 500
+  });
+});
+
+/* **** Inscription Form closing function if user wants to go back to the site ***** */
+
+var submit = document.getElementById('submitAccount');
+
+//First we set it on the whole page
+
+var page = document.getElementById('page');
+var footer = document.getElementById('footer');
+
+page.addEventListener('click', function (e) {
+  Velocity(inscriptionForm, "fadeOut", {
+    duration: 500
+  });
+});
+footer.addEventListener('click', function (e) {
+  Velocity(inscriptionForm, "fadeOut", {
+    duration: 500
+  });
+});
+
+/* ***** Inscription Form Submit handling ***** */
+
+submit.addEventListener('click', function (e) {
+  e.preventDefault();
+  var userIDDiv = document.getElementById('userID');
+  var userPasswordDiv = document.getElementById('userPassword');
+  var credentials = {
+    userID: userIDDiv.value,
+    password: userPasswordDiv.value
+  };
+  console.log(credentials);
+});

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/nouislider.min.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <div class="row">
+    <div class="row" id="page">
       <div class="article header">
         <h1 class="title">Gifinder</h1>
         <h3 class="subtitle">Use the search function to find all the Gifs you want !</h3>
@@ -28,7 +28,7 @@
       </div>
 
     </div>
-    <footer>
+    <footer id="footer">
       <div class="col-12 col-center">
         <div class="article">
           <h3 class="subtitle">This website was developped by Victor Dupuy. <a href="http://www.github.com/VDCD">Github</a> and <a href="https://ca.linkedin.com/in/victor-dupuy-752b89a0
@@ -42,6 +42,28 @@
         </div>
       </div>
     </footer>
+
+    <!-- Inscription Form, invisible by default -->
+    <div class="col-12 col-m-6 form" id="inscriptionForm">
+      <form class="article">
+        <h2 class="title">Account creation</h2>
+        <h2 class="subtitle">ID</h2>
+        <input type="text" id="userID" />
+        <h2 class="subtitle">Password</h2>
+        <input type="password" id="userPassword" />
+        <p></p>
+        <input type="submit" value="Create account" id="submitAccount">
+
+        <h2 class="subtitle">This is not functionnal yet. You can leave this form by clicking on the rest of the page</h2>
+
+      </form>
+
+    </div>
+
+    <!-- Inscription button. Will be in fixed position -->
+    <div class="inscription" id="inscription">
+      <button>Sign in</button>
+    </div>
     <script src="../libs/velocity.min.js" charset="utf-8"></script>
     <script src="../libs/nouislider.min.js" charset="utf-8"></script>
     <script src="../js/appES2015.js" charset="utf-8"></script>

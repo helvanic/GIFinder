@@ -21,7 +21,7 @@
   left : 0;
   height : 100%;
   width : 100%;
-  background-color: rgba(50,50,50,0.5);
+  background-color: rgba(25,52,65,0.4);
 
   // Text
   font-family: "Museo Sans" sans-serif;
@@ -56,7 +56,8 @@
 }
 
 .gif .overlay .imgWrapper:hover{
-  background-color: grey;
+//  background-color: grey;
+  background-color: $green;
   cursor : pointer;
 }
 

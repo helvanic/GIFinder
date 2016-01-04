@@ -825,7 +825,7 @@ footer a {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(50, 50, 50, 0.5);
+  background-color: rgba(25, 52, 65, 0.4);
   font-family: "Museo Sans" sans-serif;
   padding: 10px;
   text-align: center;
@@ -853,7 +853,7 @@ footer a {
   margin-top: 0; }
 
 .gif .overlay .imgWrapper:hover {
-  background-color: grey;
+  background-color: #1BBC9B;
   cursor: pointer; }
 
 .gif .overlay textarea {

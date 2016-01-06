@@ -621,8 +621,7 @@ footer a {
 
 .buttonWrapper {
   border: 7px solid rgba(255, 255, 255, 0.4);
-  margin: auto;
-  margin-top: 25px;
+  margin: 15px auto;
   width: 120px;
   height: 120px;
   border-radius: 50%; }
@@ -696,20 +695,7 @@ footer a {
     overflow: auto; } }
 
 /* Menu */
-.menu {
-  margin: 0;
-  padding: 0;
-  background: url("../img/wallpaper.jpg") center/cover no-repeat fixed;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  min-width: 280px;
-  overflow-y: auto;
-  box-shadow: 10.5px -10px 1px -9px #ddd;
-  display: block;
-  z-index: 1; }
-
-.menu-header {
+.footer-photo {
   text-align: center;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -718,8 +704,8 @@ footer a {
   -ms-user-select: none;
   user-select: none; }
 
-.menu-header img {
-  margin-top: 10vh;
+.footer-photo img {
+  margin-top: 15px;
   width: 10vw;
   min-width: 150px;
   border-radius: 50%;
@@ -817,7 +803,8 @@ footer a {
 
 .gif {
   background: url("../img/loading.gif") center no-repeat;
-  height: 250px; }
+  height: 250px;
+  z-index: 5; }
 
 .gif img {
   min-width: 200px;
@@ -899,13 +886,15 @@ footer a {
     left: 16.6%; } }
 
 .inscription {
-  position: fixed;
-  top: 15px;
-  right: 15%; }
+  position: relative; }
+
+.inscription input {
+  position: relative;
+  text-align: center; }
 
 .image {
   padding: 0;
-  z-index: -2; }
+  z-index: 2; }
 
 .image img {
   width: 100%; }

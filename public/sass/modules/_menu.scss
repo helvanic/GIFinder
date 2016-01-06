@@ -1,21 +1,6 @@
 /* Menu */
 
-.menu{
-  margin : 0;
-  padding : 0;
-  background : url('../img/wallpaper.jpg') center/cover no-repeat fixed;
-  //background : url('http://i.imgur.com/3Ofp0yp.jpg') center/cover no-repeat fixed;
-  position : fixed;
-  height : 100vh;
-  width: 100vw;
-  min-width: 280px;
-  overflow-y: auto;
-  box-shadow: 10.5px -10px 1px -9px #ddd;
-  display : block;
-  z-index: 1;
-}
-
-.menu-header{
+.footer-photo{
   text-align: center;
   -webkit-touch-callout: none;
    -webkit-user-select: none;
@@ -26,8 +11,8 @@
 }
 
 
-.menu-header img{
-  margin-top: 10vh;
+.footer-photo img{
+  margin-top: 15px;
   width : 10vw;
   min-width: 150px;
   border-radius: 50%;

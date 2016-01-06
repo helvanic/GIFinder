@@ -5,6 +5,7 @@
 .gif{
   background : url('../img/loading.gif') center no-repeat;
   height : 250px;
+  z-index: 5;
 }
 .gif img{
   min-width: 200px;

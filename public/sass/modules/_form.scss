@@ -1,3 +1,4 @@
+// Form for account creation
 .form{
   position : absolute;
   top : 12%;
@@ -27,9 +28,11 @@
   }
 }
 
-
+//Button to show the form
 .inscription{
-  position :fixed;
-  top : 15px;
-  right : 15%;
+  position :relative;
 }
+
+.inscription input{
+  position: relative;
+text-align: center;}

@@ -198,6 +198,34 @@ class Get extends Call{
   }
 }
 
+class Post extends Call{
+  constructor(uri, callback, data){
+    super(uri, callback);
+    this.data = data;
+  }
+
+  send(){
+    let post = this;
+    let uri = post.uri;
+    let data = post.data;
+    let callback = post.callback;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', encodeURI(uri), true);
+    //Calls a function when the state changes.
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(data));
+    xhr.onloadend = function () {
+      if(xhr.readyState == 4 && xhr.status == 200) {
+    		callback(JSON.parse(xhr.responseText));
+    	}else{
+        console.log("POST didn't work. Error "+xhr.status);
+      }
+    };
+  }
+}
+
+
 //Script for the page
 
 //Here is the API base adress
@@ -436,6 +464,7 @@ slider.noUiSlider.on('update', function( values, handle ) {
   /* ****** Inscription Form fadeIn ****** */
 let inscription = document.getElementById('inscription');
 let incsriptionForm = document.getElementById('inscriptionForm');
+let inscriptionSubmit = document.getElementById('inscriptionSubmit');
 
 inscription.addEventListener('click', function(){
   Velocity(
@@ -449,7 +478,7 @@ inscription.addEventListener('click', function(){
 
   /* **** Inscription Form closing function if user wants to go back to the site ***** */
 
-let submit = document.getElementById('submitAccount');
+const uri = '/account'; //to create the account we'll post there
 
 //First we set it on the whole page
 
@@ -477,13 +506,28 @@ footer.addEventListener('click', function(e){
 
   /* ***** Inscription Form Submit handling ***** */
 
-submit.addEventListener('click', function(e){
-  e.preventDefault();
+inscriptionSubmit.addEventListener('click', function(event){
+  event.preventDefault();
   let userIDDiv = document.getElementById('userID');
   let userPasswordDiv = document.getElementById('userPassword');
   let credentials = {
     userID : userIDDiv.value,
     password : userPasswordDiv.value
   }
-  console.log(credentials);
+  let creation = function(data){
+    switch(data.created){
+      case true :
+        alert('Account created ! ');
+        break;
+
+      case false :
+        alert('Account not created');
+        break;
+
+      default:
+        alert('There seems to be an error. You might want to check your internet connection');
+    }
+  }
+  let accountPost = new Post(uri, creation, credentials);
+  accountPost.send();
 });

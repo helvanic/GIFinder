@@ -193,6 +193,44 @@ var Get = (function (_Call) {
   return Get;
 })(Call);
 
+var Post = (function (_Call2) {
+  _inherits(Post, _Call2);
+
+  function Post(uri, callback, data) {
+    _classCallCheck(this, Post);
+
+    var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(Post).call(this, uri, callback));
+
+    _this3.data = data;
+    return _this3;
+  }
+
+  _createClass(Post, [{
+    key: "send",
+    value: function send() {
+      var post = this;
+      var uri = post.uri;
+      var data = post.data;
+      var callback = post.callback;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', encodeURI(uri), true);
+      //Calls a function when the state changes.
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.send(JSON.stringify(data));
+      xhr.onloadend = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          callback(JSON.parse(xhr.responseText));
+        } else {
+          console.log("POST didn't work. Error " + xhr.status);
+        }
+      };
+    }
+  }]);
+
+  return Post;
+})(Call);
+
 //Script for the page
 
 //Here is the API base adress
@@ -430,6 +468,7 @@ slider.noUiSlider.on('update', function (values, handle) {
 /* ****** Inscription Form fadeIn ****** */
 var inscription = document.getElementById('inscription');
 var incsriptionForm = document.getElementById('inscriptionForm');
+var inscriptionSubmit = document.getElementById('inscriptionSubmit');
 
 inscription.addEventListener('click', function () {
   Velocity(inscriptionForm, "fadeIn", {
@@ -439,7 +478,7 @@ inscription.addEventListener('click', function () {
 
 /* **** Inscription Form closing function if user wants to go back to the site ***** */
 
-var submit = document.getElementById('submitAccount');
+var uri = '/account'; //to create the account we'll post there
 
 //First we set it on the whole page
 
@@ -459,13 +498,28 @@ footer.addEventListener('click', function (e) {
 
 /* ***** Inscription Form Submit handling ***** */
 
-submit.addEventListener('click', function (e) {
-  e.preventDefault();
+inscriptionSubmit.addEventListener('click', function (event) {
+  event.preventDefault();
   var userIDDiv = document.getElementById('userID');
   var userPasswordDiv = document.getElementById('userPassword');
   var credentials = {
     userID: userIDDiv.value,
     password: userPasswordDiv.value
   };
-  console.log(credentials);
+  var creation = function creation(data) {
+    switch (data.created) {
+      case true:
+        alert('Account created ! ');
+        break;
+
+      case false:
+        alert('Account not created');
+        break;
+
+      default:
+        alert('There seems to be an error. You might want to check your internet connection');
+    }
+  };
+  var accountPost = new Post(uri, creation, credentials);
+  accountPost.send();
 });

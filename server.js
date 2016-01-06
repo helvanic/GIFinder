@@ -1,7 +1,6 @@
 //Dependencies
 var express = require('express');
 var app = express();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 //Middlewares
 app.use(express.static(__dirname + '/public'));

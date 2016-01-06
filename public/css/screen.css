@@ -885,13 +885,6 @@ footer a {
     top: 15%;
     left: 16.6%; } }
 
-.inscription {
-  position: relative; }
-
-.inscription input {
-  position: relative;
-  text-align: center; }
-
 .image {
   padding: 0;
   z-index: 2; }

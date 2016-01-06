@@ -833,7 +833,6 @@ footer a {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(25, 52, 65, 0.4);
   font-family: "Museo Sans" sans-serif;
   padding: 10px;
   text-align: center;
@@ -905,7 +904,8 @@ footer a {
   right: 15%; }
 
 .image {
-  padding: 0; }
+  padding: 0;
+  z-index: -2; }
 
 .image img {
   width: 100%; }

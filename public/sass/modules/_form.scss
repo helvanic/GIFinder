@@ -1,6 +1,6 @@
 .form{
-  position : fixed;
-  top : 18%;
+  position : absolute;
+  top : 12%;
   left : 0;
   height : 100%;
   background-color: $white;
@@ -11,7 +11,7 @@
 
 @media only screen and (min-width : 625px){//This is here in order to allow the subtitle to appear even on mobuke?
   .form{
-    position : fixed;
+    position : absolute;
     height : 100%;
     top : 15%;
   }
@@ -20,7 +20,7 @@
 
 @media only screen and (min-width : $medium){
   .form{
-    position : fixed;
+    position : absolute;
     height : 75%;
     top : 15%;
     left : 16.6%; // col-m-8 means width = 8/12=66.66%, so 33.33% left, divided by two (left and right of the form) => 16.6%

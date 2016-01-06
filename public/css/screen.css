@@ -877,8 +877,8 @@ footer a {
   background: #FFFFFF !important; }
 
 .form {
-  position: fixed;
-  top: 18%;
+  position: absolute;
+  top: 12%;
   left: 0;
   height: 100%;
   background-color: #FFFFFF;
@@ -888,13 +888,13 @@ footer a {
 
 @media only screen and (min-width: 625px) {
   .form {
-    position: fixed;
+    position: absolute;
     height: 100%;
     top: 15%; } }
 
 @media only screen and (min-width: 960px) {
   .form {
-    position: fixed;
+    position: absolute;
     height: 75%;
     top: 15%;
     left: 16.6%; } }
@@ -903,3 +903,10 @@ footer a {
   position: fixed;
   top: 15px;
   right: 15%; }
+
+.image {
+  margin: 0;
+  padding: 0; }
+
+.image img {
+  width: 100%; }

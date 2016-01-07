@@ -114,7 +114,7 @@ router.post('/', function(req, res){ //Account creation
 });
 
 router.post('/login', function(req,res){
-	User.findOne({name : req.body.userName}, function(err, user){
+	User.findOne({userName : req.body.userID}, function(err, user){
 		if(!user){
 			res.json({
         logged : false,

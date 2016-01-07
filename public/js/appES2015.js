@@ -553,7 +553,31 @@ inscriptionSubmit.addEventListener('click', function (event) {
     console.log(data);
     switch (data.created) {
       case true:
-        alert('Account created ! ');
+        Velocity( //We make the button login disappear
+        document.getElementById('login'), "fadeOut", {
+          duration: 100
+        });
+        Velocity( //We then make the form disappear
+        inscriptionForm, "fadeOut", {
+          duration: 600
+        });
+        Velocity( //We make the sign in button disappear
+        inscription, "fadeOut", {
+          duration: 100
+        });
+        document.getElementById('logged').innerHTML = "Logged as " + credentials.userID;
+        Velocity( //We display "Logged as username"
+        document.getElementById('logged').parentNode, "fadeIn", {
+          duration: 600
+        });
+        Velocity( //We display "Logged as username"
+        document.getElementById('logout'), "fadeIn", {
+          duration: 1
+        });
+        Velocity( //We show the button allowing to get your own gifs
+        document.getElementById('showFav'), "fadeIn", {
+          duration: 100
+        });
         break;
 
       case false:
@@ -599,6 +623,7 @@ loginSubmit.addEventListener('click', function (event) {
     userID: userIDLoginDiv.value,
     password: userPasswordLoginDiv.value
   };
+  console.log(credentials);
   var login = function login(data) {
     console.log(data);
     switch (data.logged) {
@@ -606,6 +631,10 @@ loginSubmit.addEventListener('click', function (event) {
         console.log('Logged in, gj');
         Velocity( //We make the button login disappear
         document.getElementById('login'), "fadeOut", {
+          duration: 100
+        });
+        Velocity( //We make the button login disappear
+        inscription, "fadeOut", {
           duration: 100
         });
         Velocity( //We replace it by the logout button
@@ -656,13 +685,30 @@ favGifsButton.addEventListener('click', function (e) {
 
 /* ****** Logout ****** */
 var logoutPop = document.getElementById('logout');
-// logoutPop.addEventListener('click', function(e){
-//   e.preventDefault();
-//   let logoutPost = new Post('/account/logout', function(data){
-//     console.log(data);
-//   });
-//   logoutPost.send();
-// });
+logoutPop.addEventListener('click', function (e) {
+  e.preventDefault();
+  var logoutPost = new Post('/account/logout', function (data) {
+    console.log(data);
+    Velocity(loginPop, "fadeIn", {
+      duration: 100
+    });
+    Velocity(inscription, "fadeIn", {
+      duration: 100
+    });
+    Velocity(logoutPop, "fadeOut", {
+      duration: 100
+    });
+    document.getElementById('logged').innerHTML = "";
+    Velocity(document.getElementById('logged').parentNode, "fadeOut", {
+      duration: 300
+    });
+    Velocity(favGifsButton, "fadeOut", {
+      duration: 300
+    });
+  });
+  logoutPost.send();
+});
+
 /* ****** Tcheck at page load if already a session ****** */
 var getLogged = new Get('/account/logged', function (data) {
   console.log(data);

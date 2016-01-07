@@ -502,6 +502,7 @@ slider.noUiSlider.on('update', function (values, handle) {
     pageLoaded++;
   } else {
     GIFS_ON_PAGE = Math.round(parseInt(values));
+    LAST_GIFS_ON_PAGE = GIFS_PER_LINE;
     console.log(GIFS_ON_PAGE);
     display();
   }
@@ -687,3 +688,6 @@ var getLogged = new Get('/account/logged', function (data) {
 });
 
 getLogged.send();
+
+//CORRECTION NEEDED WHEN LESS GIFS THAN WE WANT
+//CORRECTION NEEDED FOR 1 GIFS, LAST OF THE LIST NOT DISPLAYED

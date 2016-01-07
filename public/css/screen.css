@@ -541,6 +541,9 @@ html, body {
   display: none; }
 
 /*   Base    */
+.red {
+  background-color: #E64C66; }
+
 .greyblue {
   background-color: #3E606F;
   color: #FCFFF5; }
@@ -817,8 +820,8 @@ footer a {
   z-index: 5; }
 
 .gif img {
-  min-width: 200px;
-  height: auto;
+  height: 200px;
+  width: auto;
   display: table;
   margin: 0 auto;
   margin-top: 25px; }
@@ -859,6 +862,12 @@ footer a {
 .gif .overlay .imgWrapper:hover {
   background-color: #1BBC9B;
   cursor: pointer; }
+
+.delete {
+  display: none; }
+
+.delete:hover {
+  background-color: #E64C66 !important; }
 
 .gif .overlay textarea {
   display: none;

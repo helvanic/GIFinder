@@ -8,8 +8,8 @@
   z-index: 5;
 }
 .gif img{
-  min-width: 200px;
-  height: auto;
+  height : 200px;
+  width: auto;
   display : table;
   margin : 0 auto;
   margin-top: 25px;
@@ -60,6 +60,14 @@
 //  background-color: grey;
   background-color: $green;
   cursor : pointer;
+}
+
+.delete{
+  display : none;
+}
+
+.delete:hover{
+  background-color: $red !important;
 }
 
 .gif .overlay textarea{

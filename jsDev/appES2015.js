@@ -41,15 +41,17 @@ class Frame{
   }
 }
 
+const GIFS_PER_LINE = 3;
+
 class Gif extends Frame{
   constructor(search, url, downloadUrl, number){
     super(name, url);
     this.number = number;
     this.downloadUrl = downloadUrl;
-    if(document.getElementById('hd').checked){
-      this.col = 4;
+    if(GIFS_PER_LINE==3){
+      this.col = 4; // Will create col-m-4 <=> 3 gifs per line
     }else{
-      this.col= 3;
+      this.col = 3; // Will create col-m-3 <=> 4 gifs per line
     }
   }
 
@@ -149,6 +151,9 @@ class Gif extends Frame{
             </div>
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
+            </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -339,7 +344,7 @@ let overlayListeners = function(){
       //Favorite PART
       let favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
       favorite.addEventListener('click', function(){
-        console.log(this.parentNode.parentNode.parentNode);
+        //console.log(this.parentNode.parentNode.parentNode);
         let gifInfo = {
           "fixed_height" : {
             url :this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
@@ -358,6 +363,24 @@ let overlayListeners = function(){
         }
         let postFav = new Post(gifsUri, adding, gifInfo);
         postFav.send();
+
+        // Now we hide the button
+        Velocity(
+          this.parentNode,
+          "fadeOut",
+          {
+            duration : 300
+          }
+        );
+        // And we show the delete button (to remove the favorite)
+        Velocity(
+          this.parentNode.parentNode.querySelectorAll('.delete')[0],
+          "fadeIn",
+          {
+            duration : 300,
+            delay : 200
+          }
+        );
       });
   }
 }
@@ -410,18 +433,11 @@ let listBuild = function(gifsReceived){
   //Here, we clear the list of gifs in memory
   gifs.clear();
   let i = 0;
-  console.log(document.getElementById('hd').checked);
-  if(document.getElementById('hd').checked){//Big gifs
-    for(let gif of gifsReceived.data){
-        gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url, gif.images.original.url, i));
-      i++;
-    }
-  }else{
-    for(let gif of gifsReceived.data){//Small gifs
-        gifs.addOne(new Gif(searchInput.value, gif.images["fixed_height_small"].url, gif.images.original.url, i));
-      i++;
-    }
+  for(let gif of gifsReceived.data){//Small gifs
+      gifs.addOne(new Gif(searchInput.value, gif.images["fixed_height_small"].url, gif.images.original.url, i));
+    i++;
   }
+
   display();
 }
 
@@ -508,11 +524,6 @@ slider.noUiSlider.on('update', function( values, handle ) {
 
 
 //Build : electron-packager "C:\Users\Victor\Desktop\Agence DevWeb\Electron\Gifinder-ES2015\app" Gifinder --platform=all --arch=all --version=0.35.0
-
-
-
-
-
 
 /* ***************** FORM PART ****************** */
 
@@ -694,6 +705,7 @@ favGifsButton.addEventListener('click', function(e){
     listBuild(data);
   }
   let getFavGifs = new Get(uri, callback);
+
   getFavGifs.send();
 });
 

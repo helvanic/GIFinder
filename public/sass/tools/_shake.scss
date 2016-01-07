@@ -16,7 +16,7 @@
 
 .shake:hover,
 .shake:focus {
-	@include animation(0.25s, shake, infinite, linear);
+	@include animation(0.5s, shake, infinite, linear);
 
 	-webkit-transform-origin:50% 50%;
 	-moz-transform-origin:50% 50%;

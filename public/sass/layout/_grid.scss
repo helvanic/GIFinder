@@ -31,7 +31,7 @@ html, body{
 	@extend %clearfix;
 }
 
-@for $i from 1 through $columns{
+@for $i from 0 through $columns{
 	.col-center{
 		margin : 0 auto;
 		float : none;
@@ -49,7 +49,7 @@ html, body{
 		margin : 0 auto;
 		float : none;
 	}
-	@for $i from 1 through $columns{
+	@for $i from 0 through $columns{
 	.col-m-#{$i}{
 		width : $i/$columns*100%;
 		}
@@ -61,7 +61,7 @@ html, body{
 		margin : 0 auto;
 		float : none;
 	}
-	@for $i from 1 through $columns{
+	@for $i from 0 through $columns{
 	.col-l-#{$i}{
 		width : $i/$columns*100%;
 		}

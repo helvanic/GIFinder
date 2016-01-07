@@ -12,14 +12,22 @@
     <div class="row" id="page">
       <div class="article header">
         <h1 class="title">Gifinder</h1>
+        <div class="col-12 col-m-5 col-center user user-info">
+          <h2 id="logged" class="subtitle"></h2>
+        </div>
         <h3 class="subtitle">Use the search function to find all the Gifs you want !</h3>
         <input type="text" placeholder="Search" id="search"/>
+        <div class="col-12 col-m-5 col-center">
+          <h4 class="subsubtitle">Click below for bigger GIFs on your next search (Careful : slower to load !)</h4>
+          <input id="hd" type="checkbox" value="huehue">
+        </div>
         <h4 class="subsubtitle">Number of Gifs displayed :</h4>
         <div id="slider" class="col-10 col-m-3 col-center"></div>
         <div class="separator"></div>
       </div>
       <div class="col-12 article">
-        <h2 class="subtitle">Once you've typed your search, press Enter to get other Gifs! </h2>
+        <input type="submit" value="Show Favorite Gifs" id="showFav" class="user"/>
+        <h2 class="subtitle">Once you've typed your search, press Enter or Space to see other Gifs! </h2>
       </div>
       <div class="col-12" id="gallery">
         <!-- This is where all gifs will be displayed -->
@@ -29,12 +37,21 @@
           <img src="../img/giphy.gif" alt="BEST API <3">
         </a>
       </div>
-
     </div>
 
-    <!-- Inscription button to create an account -->
-    <div class="col-12 col-m-6 col-center article" id="inscription">
-      <input type="submit" value="Sign in">
+    <div class="col-12">
+      <!-- Inscription button to create an account -->
+      <div class="col-12 col-m-8 col-center session">
+        <div class="col-12 col-m-6 article" id="inscription">
+          <input type="submit" value="Sign in">
+        </div>
+        <div class="col-12 col-m-6 article" id="login">
+          <input type="submit" value="Login">
+        </div>
+        <div class="col-12 col-m-6 article" id="logout">
+          <input type="submit" value="Logout">
+        </div>
+      </div>
     </div>
 
     <footer id="footer">
@@ -62,7 +79,7 @@
               Download Icon made by <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
             </h3>
             <h3 class="subtitle">
-              URL Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+              URL and Favorite Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
             </h3>
           </div>
 
@@ -84,13 +101,24 @@
         <p></p>
         <input type="submit" value="Create account" id="inscriptionSubmit">
 
-        <h2 class="subtitle">This is not functionnal yet. You can leave this form by clicking on the rest of the page</h2>
         <p class="subsubtitle">This account will allow you to manage your favorite gifs and create your own collection to quickly
           retrieve them without having to search for them again.</p>
       </form>
-
     </div>
 
+    <!-- Login Form, invisible by default -->
+    <div class="col-12 col-m-8 form" id="loginForm">
+      <form class="article">
+        <h1 class="title">Login</h1>
+        <h2 class="subtitle">ID</h2>
+        <input type="text" id="userIDLogin" required/>
+        <h2 class="subtitle">Password</h2>
+        <input type="password" id="userPasswordLogin" required/>
+        <p></p>
+        <input type="submit" value="Login" id="loginSubmit"/>
+        <p class="subsubtitle">No account? You need to create one before you can log in ! :)</p>
+      </form>
+    </div>
 
     <script src="../libs/velocity.min.js" charset="utf-8"></script>
     <script src="../libs/nouislider.min.js" charset="utf-8"></script>

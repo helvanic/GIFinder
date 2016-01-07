@@ -333,25 +333,25 @@ table {
 
 .shake:hover,
 .shake:focus {
-  -webkit-animation-duration: 0.25s;
+  -webkit-animation-duration: 0.5s;
   -webkit-animation-name: shake;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   -webkit-animation-fill-mode: forwards;
   /* this prevents the animation from restarting! */
-  -moz-animation-duration: 0.25s;
+  -moz-animation-duration: 0.5s;
   -moz-animation-name: shake;
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
   -moz-animation-fill-mode: forwards;
   /* this prevents the animation from restarting! */
-  -o-animation-duration: 0.25s;
+  -o-animation-duration: 0.5s;
   -o-animation-name: shake;
   -o-animation-iteration-count: infinite;
   -o-animation-timing-function: linear;
   -o-animation-fill-mode: forwards;
   /* this prevents the animation from restarting! */
-  animation-duration: 0.25s;
+  animation-duration: 0.5s;
   animation-name: shake;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -363,7 +363,7 @@ table {
   transform-origin: 50% 50%; }
 
 /*   Layout   */
-.col-1, .col-m-1, .col-l-1, .col-2, .col-m-2, .col-l-2, .col-3, .col-m-3, .col-l-3, .col-4, .col-m-4, .col-l-4, .col-5, .col-m-5, .col-l-5, .col-6, .col-m-6, .col-l-6, .col-7, .col-m-7, .col-l-7, .col-8, .col-m-8, .col-l-8, .col-9, .col-m-9, .col-l-9, .col-10, .col-m-10, .col-l-10, .col-11, .col-m-11, .col-l-11, .col-12, .col-m-12, .col-l-12 {
+.col-0, .col-m-0, .col-l-0, .col-1, .col-m-1, .col-l-1, .col-2, .col-m-2, .col-l-2, .col-3, .col-m-3, .col-l-3, .col-4, .col-m-4, .col-l-4, .col-5, .col-m-5, .col-l-5, .col-6, .col-m-6, .col-l-6, .col-7, .col-m-7, .col-l-7, .col-8, .col-m-8, .col-l-8, .col-9, .col-m-9, .col-l-9, .col-10, .col-m-10, .col-l-10, .col-11, .col-m-11, .col-l-11, .col-12, .col-m-12, .col-l-12 {
   float: left;
   position: relative;
   padding: 0 0px; }
@@ -383,6 +383,13 @@ html, body {
 .row {
   margin: 0;
   /* margin : 0 $gutter*-0.5; */ }
+
+.col-center {
+  margin: 0 auto;
+  float: none; }
+
+.col-0 {
+  width: 0%; }
 
 .col-center {
   margin: 0 auto;
@@ -472,6 +479,8 @@ html, body {
   .col-m-center {
     margin: 0 auto;
     float: none; }
+  .col-m-0 {
+    width: 0%; }
   .col-m-1 {
     width: 8.33333%; }
   .col-m-2 {
@@ -501,6 +510,8 @@ html, body {
   .col-l-center {
     margin: 0 auto;
     float: none; }
+  .col-l-0 {
+    width: 0%; }
   .col-l-1 {
     width: 8.33333%; }
   .col-l-2 {
@@ -708,8 +719,7 @@ footer a {
   margin-top: 15px;
   width: 10vw;
   min-width: 150px;
-  border-radius: 50%;
-  cursor: pointer; }
+  border-radius: 50%; }
 
 /* Article */
 .article {
@@ -837,7 +847,7 @@ footer a {
   height: 80px;
   padding-top: 8px;
   border-radius: 50%;
-  margin-top: 20px;
+  margin-top: 1px;
   transition: all 0.3s; }
 
 .gif .overlay img {
@@ -852,6 +862,7 @@ footer a {
 
 .gif .overlay textarea {
   display: none;
+  position: relative;
   margin-top: 15px;
   font-size: 1.5em; }
 
@@ -881,9 +892,15 @@ footer a {
 @media only screen and (min-width: 960px) {
   .form {
     position: absolute;
-    height: 75%;
+    height: 60%;
     top: 15%;
     left: 16.6%; } }
+
+.session {
+  z-index: 4; }
+
+#logout {
+  display: none; }
 
 .image {
   padding: 0;
@@ -891,3 +908,18 @@ footer a {
 
 .image img {
   width: 100%; }
+
+.user {
+  display: none; }
+
+.user-info {
+  background-color: #FFFFFF;
+  color: #2D3E50;
+  font-size: 2em;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 15px; }
+
+.user {
+  position: relative;
+  z-index: 3; }

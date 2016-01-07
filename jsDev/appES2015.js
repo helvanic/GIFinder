@@ -46,6 +46,11 @@ class Gif extends Frame{
     super(name, url);
     this.number = number;
     this.downloadUrl = downloadUrl;
+    if(document.getElementById('hd').checked){
+      this.col = 4;
+    }else{
+      this.col= 3;
+    }
   }
 
   render(){
@@ -53,7 +58,7 @@ class Gif extends Frame{
       case 12 :
         return(
           `
-        <div class="col-12 col-m-4 gif ">
+        <div class="col-12 col-m-${this.col} gif ">
           <img src="${this.url}" class="gif-12"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -61,6 +66,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -70,7 +78,7 @@ class Gif extends Frame{
       case 18 :
         return(
           `
-        <div class="col-12 col-m-4 gif ">
+        <div class="col-12 col-m-${this.col} gif ">
           <img src="${this.url}" class="gif-18"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -78,6 +86,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -87,7 +98,7 @@ class Gif extends Frame{
       case 50 :
         return(
           `
-        <div class="col-12 col-m-4 gif ">
+        <div class="col-12 col-m-${this.col} gif ">
           <img src="${this.url}" class="gif-50"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -95,6 +106,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -104,7 +118,7 @@ class Gif extends Frame{
       case 9 :
         return(
           `
-        <div class="col-12 col-m-4 gif ">
+        <div class="col-12 col-m-${this.col} gif ">
           <img src="${this.url}" class="gif-9"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -112,6 +126,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -121,7 +138,7 @@ class Gif extends Frame{
       case 6 :
         return(
           `
-        <div class="col-12 col-m-4 gif">
+        <div class="col-12 col-m-${this.col} gif">
           <img src="${this.url}" class="gif-6"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -129,6 +146,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -138,7 +158,7 @@ class Gif extends Frame{
       case 1 :
         return(
           `
-        <div class="col-12 col-m-4 col-center gif ">
+        <div class="col-12 col-m-${this.col} col-center gif ">
           <img src="${this.url}" class="gif-1"></img>
           <div class="overlay">
             <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
@@ -146,6 +166,9 @@ class Gif extends Frame{
               <img src="../img/link.png" alt="link" class="link"></img>
                 <textarea rows="1" cols="55">
                 </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
           </div>
         </div>
@@ -231,6 +254,9 @@ class Post extends Call{
 //Here is the API base adress
 const apiURIStart = 'https://api.giphy.com/v1/gifs/search?q=';
 const apiURLKey = '&limit=80&api_key=dc6zaTOxFJmzC';
+const uri = '/account'; //to create the account we'll post there
+const loginUri = uri + '/login';
+const gifsUri = uri+'/gifs';
 
 //Number of Gifs on the page. Choose between 9 & 12.
 let GIFS_ON_PAGE = 6;
@@ -306,10 +332,33 @@ let overlayListeners = function(){
           textarea.innerHTML = ""+downloadUrl;
           textarea.select();
         }, 200);
-
       });
 
       //Download part is directly done in html
+
+      //Favorite PART
+      let favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
+      favorite.addEventListener('click', function(){
+        console.log(this.parentNode.parentNode.parentNode);
+        let gifInfo = {
+          "fixed_height" : {
+            url :this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+          },
+          "fixed_height_small" : {
+            url : this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+          },
+          "original":  this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href
+        }
+        let adding = function(data){
+          if(data.added){
+            console.log('Success !');
+          }else{
+            console.log("Fail");
+          }
+        }
+        let postFav = new Post(gifsUri, adding, gifInfo);
+        postFav.send();
+      });
   }
 }
 
@@ -361,11 +410,18 @@ let listBuild = function(gifsReceived){
   //Here, we clear the list of gifs in memory
   gifs.clear();
   let i = 0;
-  for(let gif of gifsReceived.data){
-    gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url, gif.images.original.url, i));
-    i++;
+  console.log(document.getElementById('hd').checked);
+  if(document.getElementById('hd').checked){//Big gifs
+    for(let gif of gifsReceived.data){
+        gifs.addOne(new Gif(searchInput.value, gif.images.fixed_height.url, gif.images.original.url, i));
+      i++;
+    }
+  }else{
+    for(let gif of gifsReceived.data){//Small gifs
+        gifs.addOne(new Gif(searchInput.value, gif.images["fixed_height_small"].url, gif.images.original.url, i));
+      i++;
+    }
   }
-
   display();
 }
 
@@ -412,8 +468,8 @@ searchInput.addEventListener('input', function(){
 //Enter listener
 
 //Enter
-
-window.addEventListener('keydown', function (e) {
+let page = document.getElementById('page');
+page.addEventListener('keydown', function (e) {
   if (13 == e.keyCode) {
      display();
   }
@@ -478,11 +534,7 @@ inscription.addEventListener('click', function(){
 
   /* **** Inscription Form closing function if user wants to go back to the site ***** */
 
-const uri = '/account'; //to create the account we'll post there
-
 //First we set it on the whole page
-
-let page = document.getElementById('page');
 let footer = document.getElementById('footer');
 
 page.addEventListener('click', function(e){
@@ -532,3 +584,120 @@ inscriptionSubmit.addEventListener('click', function(event){
   let accountPost = new Post(uri, creation, credentials);
   accountPost.send();
 });
+
+/* ****** Login form to log in one's session ****** */
+let loginPop = document.getElementById('login');
+let loginForm = document.getElementById('loginForm');
+let loginSubmit = document.getElementById('loginSubmit');
+
+loginPop.addEventListener('click', function(){
+  Velocity(
+    loginForm,
+    "fadeIn",
+    {
+      duration : 500
+    }
+  );
+});
+
+page.addEventListener('click', function(e){
+  Velocity(
+    loginForm,
+    "fadeOut",
+    {
+      duration : 500
+    }
+  );
+});
+footer.addEventListener('click', function(e){
+  Velocity(
+    loginForm,
+    "fadeOut",
+    {
+      duration : 500
+    }
+  );
+});
+
+/* ******* Login Submit ********* */
+loginSubmit.addEventListener('click', function(event){
+  event.preventDefault();
+  let userIDLoginDiv = document.getElementById('userIDLogin');
+  let userPasswordLoginDiv = document.getElementById('userPasswordLogin');
+  let credentials = {
+    userID : userIDLoginDiv.value,
+    password : userPasswordLoginDiv.value
+  }
+  let login = function(data){
+    console.log(data);
+    switch(data.logged){
+      case true :
+        console.log('Logged in, gj');
+        Velocity(//We make the button login disappear
+          document.getElementById('login'),
+          "fadeOut",
+          {
+            duration : 100
+          }
+        );
+        Velocity(//We replace it by the logout button
+          document.getElementById('logout'),
+          "fadeIn",
+          {
+            duration : 100,
+            delay : 100
+          }
+        );
+        Velocity(//We then make the form disappear
+          document.getElementById('loginForm'),
+          "fadeOut",
+          {
+            duration : 600
+          }
+        );
+        document.getElementById('logged').innerHTML = "Logged as "+credentials.userID;
+        Velocity(//We display "Logged as username"
+          document.getElementById('logged').parentNode,
+          "fadeIn",
+          {
+            duration : 600
+          }
+        );
+        Velocity(//We show the button allowing to get your own gifs
+          document.getElementById('showFav'),
+          "fadeIn",
+          {
+            duration : 100
+          }
+        );
+        break;
+
+      case false :
+        alert('Not logged in !');
+        break;
+
+      default:
+        alert('There seems to be an error. You might want to check your internet connection');
+    }
+  }
+  let loginPost = new Post(loginUri, login, credentials);
+  loginPost.send();
+});
+
+/* ***** Get favorite Gifs ***** */
+let favGifsButton = document.getElementById('showFav');
+favGifsButton.addEventListener('click', function(e){
+  e.preventDefault();
+  let uri = gifsUri;
+  let callback = function(data){
+    console.log(data);
+    listBuild(data);
+  }
+  let getFavGifs = new Get(uri, callback);
+  getFavGifs.send();
+});
+
+
+/* ****** Logout ****** */
+
+/* ****** Tcheck at page load if already a session ****** */

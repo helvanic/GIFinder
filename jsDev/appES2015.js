@@ -515,6 +515,7 @@ inscriptionSubmit.addEventListener('click', function(event){
     password : userPasswordDiv.value
   }
   let creation = function(data){
+    console.log(data);
     switch(data.created){
       case true :
         alert('Account created ! ');

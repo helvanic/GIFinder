@@ -136,7 +136,7 @@ var Gif = (function (_Frame) {
           return "\n        <div class=\"col-12 col-m-" + this.col + " col-center gif \">\n          <img src=\"" + this.url + "\" class=\"gif-1\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         default:
-          return "<h1 class=\"article\">BUG OMG</h1>";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-" + GIFS_ON_PAGE + "\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
       }
     }
   }]);
@@ -250,6 +250,7 @@ var gifsUri = uri + '/gifs';
 
 //Number of Gifs on the page. Choose between 9 & 12.
 var GIFS_ON_PAGE = 6;
+var LAST_GIFS_ON_PAGE = GIFS_ON_PAGE; //Useful to come back to previous choice when showing favorite gifs then searching
 
 // Divs definition
 
@@ -385,7 +386,7 @@ var display = function display() {
       gifsDisplayed.push(random);
       // console.log(random);
       // console.log(gifsList[random]);
-      console.log(gifsDisplayed);
+      //console.log(gifsDisplayed);
 
       document.getElementById('gallery').innerHTML += gifsList[random].render();
     }
@@ -442,6 +443,7 @@ var changeTimer = false;
 
 var search = function search() {
   var input = searchInput.value;
+  GIFS_ON_PAGE = LAST_GIFS_ON_PAGE;
   input = input.replace(/\s+/g, ''); // We remove spaces before checking the length, cause the 3 min char set isn't for spaces
   if (input.length >= 3) {
     if (changeTimer !== false) clearTimeout(changeTimer);
@@ -643,7 +645,7 @@ favGifsButton.addEventListener('click', function (e) {
   e.preventDefault();
   var uri = gifsUri;
   var callback = function callback(data) {
-    console.log(data);
+    GIFS_ON_PAGE = parseInt(data.data.length); // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
     listBuild(data);
   };
   var getFavGifs = new Get(uri, callback);
@@ -652,5 +654,36 @@ favGifsButton.addEventListener('click', function (e) {
 });
 
 /* ****** Logout ****** */
-
+var logoutPop = document.getElementById('logout');
+// logoutPop.addEventListener('click', function(e){
+//   e.preventDefault();
+//   let logoutPost = new Post('/account/logout', function(data){
+//     console.log(data);
+//   });
+//   logoutPost.send();
+// });
 /* ****** Tcheck at page load if already a session ****** */
+var getLogged = new Get('/account/logged', function (data) {
+  console.log(data);
+  if (data.userName) {
+    //Hiding the login and the sign in buttons
+    Velocity(loginPop, "fadeOut", {
+      duration: 1
+    });
+    Velocity(inscription, "fadeOut", {
+      duration: 1
+    });
+    Velocity(logoutPop, "fadeIn", {
+      duration: 1
+    });
+    document.getElementById('logged').innerHTML = "Logged as " + data.userName;
+    Velocity(document.getElementById('logged').parentNode, "fadeIn", {
+      duration: 300
+    });
+    Velocity(favGifsButton, "fadeIn", {
+      duration: 300
+    });
+  }
+});
+
+getLogged.send();

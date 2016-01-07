@@ -179,7 +179,28 @@ router.post('/gifs', function(req, res){
   });
 });
 
+//Useful for the client to ask if he's logged
+router.get('/logged', function(req, res){
+	if(req.session && req.session.user){
+		res.json({
+			userName : req.session.user.userName
+		});
+	}else{
+		res.json({
+			err : "You're not logged"
+		});
+	}
+});
+
 //Need a logout !!!!!!
+router.post('/logout', function(req, res){
+		console.log(req.session);
+		req.session.destroy();
+		console.log(req.session);
+		res.json({
+			loggedOut : true
+		});
+});
 
 //Export for require in server.js
 module.exports = router;

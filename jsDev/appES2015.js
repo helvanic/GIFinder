@@ -181,7 +181,24 @@ class Gif extends Frame{
         );
         break;
       default :
-        return(`<h1 class="article">BUG OMG</h1>`);
+        return(
+          `
+        <div class="col-12 col-m-${this.col} gif ">
+          <img src="${this.url}" class="gif-${GIFS_ON_PAGE}"></img>
+          <div class="overlay">
+            <div class="imgWrapper"><a download="Gif.gif" href=${this.downloadUrl} class="downloadUrl"><img src="../img/download.png" alt="download" class="download"></img></a></div>
+            <div class="imgWrapper">
+              <img src="../img/link.png" alt="link" class="link"></img>
+                <textarea rows="1" cols="55">
+                </textarea>
+            </div>
+            <div class="imgWrapper">
+              <img src="../img/fav.png" alt="fav" class="fav"></img>
+            </div>
+          </div>
+        </div>
+          `
+        );
     }
   }
 }
@@ -265,6 +282,7 @@ const gifsUri = uri+'/gifs';
 
 //Number of Gifs on the page. Choose between 9 & 12.
 let GIFS_ON_PAGE = 6;
+let LAST_GIFS_ON_PAGE = GIFS_ON_PAGE; //Useful to come back to previous choice when showing favorite gifs then searching
 
 // Divs definition
 
@@ -420,7 +438,7 @@ let display = function(){
       gifsDisplayed.push(random);
       // console.log(random);
       // console.log(gifsList[random]);
-      console.log(gifsDisplayed);
+      //console.log(gifsDisplayed);
 
       document.getElementById('gallery').innerHTML+=gifsList[random].render();
     }
@@ -458,6 +476,7 @@ let changeTimer = false;
 
 let search = function(){
   let input = searchInput.value;
+  GIFS_ON_PAGE = LAST_GIFS_ON_PAGE;
   input = input.replace(/\s+/g, '');// We remove spaces before checking the length, cause the 3 min char set isn't for spaces
   if(input.length>=3){
     if(changeTimer !== false) clearTimeout(changeTimer);
@@ -701,7 +720,7 @@ favGifsButton.addEventListener('click', function(e){
   e.preventDefault();
   let uri = gifsUri;
   let callback = function(data){
-    console.log(data);
+    GIFS_ON_PAGE = parseInt(data.data.length); // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
     listBuild(data);
   }
   let getFavGifs = new Get(uri, callback);
@@ -711,5 +730,56 @@ favGifsButton.addEventListener('click', function(e){
 
 
 /* ****** Logout ****** */
-
+let logoutPop = document.getElementById('logout');
+// logoutPop.addEventListener('click', function(e){
+//   e.preventDefault();
+//   let logoutPost = new Post('/account/logout', function(data){
+//     console.log(data);
+//   });
+//   logoutPost.send();
+// });
 /* ****** Tcheck at page load if already a session ****** */
+let getLogged = new Get('/account/logged', function(data){
+  console.log(data);
+  if(data.userName){
+    //Hiding the login and the sign in buttons
+    Velocity(
+      loginPop,
+      "fadeOut",
+      {
+        duration : 1
+      }
+    );
+    Velocity(
+      inscription,
+      "fadeOut",
+      {
+        duration : 1
+      }
+    );
+    Velocity(
+      logoutPop,
+      "fadeIn",
+      {
+        duration : 1
+      }
+    );
+    document.getElementById('logged').innerHTML = "Logged as "+data.userName;
+    Velocity(
+      document.getElementById('logged').parentNode,
+      "fadeIn",
+      {
+        duration : 300
+      }
+    );
+    Velocity(
+      favGifsButton,
+      "fadeIn",
+      {
+        duration : 300
+      }
+    );
+  }
+});
+
+getLogged.send();

@@ -18,7 +18,7 @@
 
 .article .title{
   font-family: "Montserrat-Bold", sans-serif;
-  margin-bottom : 15px;
+  // margin-bottom : 15px;
   font-size: 4em;
   text-align: center;
   padding-bottom: 15px;
@@ -40,6 +40,10 @@
   margin-bottom: 10px;
   font-size: 1.5em;
   text-align: center;
+}
+
+.article #headerSubtitle{
+  margin-top : 15px; //I KNOW this is ugly, it's only temporary !
 }
 
 .article .subsubtitle{

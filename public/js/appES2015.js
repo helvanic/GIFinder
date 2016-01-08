@@ -118,25 +118,25 @@ var Gif = (function (_Frame) {
     value: function render() {
       switch (GIFS_ON_PAGE) {
         case 12:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-12\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 18:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-18\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-18\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 50:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-50\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-50\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 9:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-9\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-9\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 6:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif\">\n          <img src=\"" + this.url + "\" class=\"gif-6\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif\">\n          <img src=\"" + this.url + "\" class=\"gif-6\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         case 1:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " col-center gif \">\n          <img src=\"" + this.url + "\" class=\"gif-1\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " col-center gif \">\n          <img src=\"" + this.url + "\" class=\"gif-1\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n            <div class=\"imgWrapper delete\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
           break;
         default:
-          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-" + GIFS_ON_PAGE + "\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/fav.png\" alt=\"fav\" class=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
+          return "\n        <div class=\"col-12 col-m-" + this.col + " gif \">\n          <img src=\"" + this.url + "\" class=\"gif-" + GIFS_ON_PAGE + "\"></img>\n          <div class=\"overlay\">\n            <div class=\"imgWrapper\"><a download=\"Gif.gif\" href=" + this.downloadUrl + " class=\"downloadUrl\"><img src=\"../img/download.png\" alt=\"download\" class=\"download\"></img></a></div>\n            <div class=\"imgWrapper\">\n              <img src=\"../img/link.png\" alt=\"link\" class=\"link\"></img>\n                <textarea rows=\"1\" cols=\"55\">\n                </textarea>\n            </div>\n            <div class=\"imgWrapper delete del\">\n              <img src=\"../img/delete.png\" alt=\"fav\"></img>\n            </div>\n          </div>\n        </div>\n          ";
       }
     }
   }]);
@@ -285,67 +285,95 @@ var overlayListeners = function overlayListeners() {
 
   for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
     var gif = gifsDivs[i];
-    gif.addEventListener('mouseover', function () {
-      for (var j in currentOverlay) {
-        Velocity(currentOverlay[j], "fadeOut", {
-          duration: 1
-        });
-        currentOverlay = [];
-      }
-      currentOverlay.push(this.parentNode.querySelectorAll('.overlay'));
-      Velocity(this.parentNode.querySelectorAll('.overlay'), "fadeIn", {
-        duration: 200
-      });
-      // console.log("You're hovering a div : ");
-      // console.log(this);
-    });
-    //Link part :
-    var link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
-    link.addEventListener('click', function () {
-      var textarea = this.parentNode.querySelectorAll('textarea')[0];
-      var downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
-      console.log(downloadUrl);
-      textAppear(textarea, function () {
-        textarea.innerHTML = "" + downloadUrl;
-        textarea.select();
-      }, 200);
-    });
-
-    //Download part is directly done in html
-
-    //Favorite PART
-    var favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
-    favorite.addEventListener('click', function () {
-      //console.log(this.parentNode.parentNode.parentNode);
-      var gifInfo = {
-        "fixed_height": {
-          url: this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
-        },
-        "fixed_height_small": {
-          url: this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
-        },
-        "original": this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href
-      };
-      var adding = function adding(data) {
-        if (data.added) {
-          console.log('Success !');
-        } else {
-          console.log("Fail");
+    if (gif) {
+      gif.addEventListener('mouseover', function () {
+        for (var j in currentOverlay) {
+          Velocity(currentOverlay[j], "fadeOut", {
+            duration: 1
+          });
+          currentOverlay = [];
         }
-      };
-      var postFav = new Post(gifsUri, adding, gifInfo);
-      postFav.send();
+        currentOverlay.push(this.parentNode.querySelectorAll('.overlay'));
+        Velocity(this.parentNode.querySelectorAll('.overlay'), "fadeIn", {
+          duration: 200
+        });
+        // console.log("You're hovering a div : ");
+        // console.log(this);
+      });
 
-      // Now we hide the button
-      Velocity(this.parentNode, "fadeOut", {
-        duration: 300
+      //Link part :
+      var link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
+      link.addEventListener('click', function () {
+        var textarea = this.parentNode.querySelectorAll('textarea')[0];
+        var downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+        // console.log(downloadUrl);
+        textAppear(textarea, function () {
+          textarea.innerHTML = "" + downloadUrl;
+          textarea.select();
+        }, 200);
       });
-      // And we show the delete button (to remove the favorite)
-      Velocity(this.parentNode.parentNode.querySelectorAll('.delete')[0], "fadeIn", {
-        duration: 300,
-        delay: 200
-      });
-    });
+
+      //Download part is directly done in html
+
+      //Favorite PART
+      var favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
+      if (favorite) {
+        favorite.addEventListener('click', function () {
+          //console.log(this.parentNode.parentNode.parentNode);
+          var gifInfo = {
+            "fixed_height": {
+              url: this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+            },
+            "fixed_height_small": {
+              url: this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+            },
+            "original": {
+              url: this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href
+            }
+          };
+          var adding = function adding(data) {
+            if (data.added) {
+              console.log('Success !');
+            } else {
+              console.log("Fail");
+            }
+          };
+          var postFav = new Post(gifsUri, adding, gifInfo);
+          postFav.send();
+
+          // Now we hide the button
+          Velocity(this.parentNode, "fadeOut", {
+            duration: 300
+          });
+          // And we show the delete button (to remove the favorite)
+          Velocity(this.parentNode.parentNode.querySelectorAll('.delete')[0], "fadeIn", {
+            duration: 300,
+            delay: 200
+          });
+        });
+      } else {
+        (function () {
+          var deleteButton = link.parentNode.parentNode.querySelectorAll('.del')[0];;
+          //  console.log(deleteButton);
+          deleteButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            var uri = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+            var deleteGifPost = new Post('/account/delete/gif', function (data) {
+              //    console.log(data);
+              if (data.deleted) {
+                var parentGif = deleteButton.parentNode.parentNode; // This is the .gif element containing the button
+                parentGif.parentNode.removeChild(parentGif);
+                //Little explanation : We need to get the parent Element of the .gif div (which is #gallery) in order to remove its own child.
+                //DOM Won't let an element commit suicide, but will allow a parent element to remove one of its children.
+              }
+            }, {
+              gifUri: uri
+            });
+            deleteGifPost.send();
+          });
+        })();
+      }
+    }
   }
 };
 
@@ -377,9 +405,13 @@ var display = function display() {
   // console.log(gifsList);
 
   for (var i = 0; i <= GIFS_ON_PAGE - 1; i++) {
+    //  console.log(GIFS_ON_PAGE);
     if (length <= GIFS_ON_PAGE) {
       //No need for random because it doesn't even fully populate the page.
-      document.getElementById('gallery').innerHTML += gifsList[i].render();
+      if (i <= length - 1) {
+        //If i is between 0 and length
+        document.getElementById('gallery').innerHTML += gifsList[i].render();
+      }
     } else {
       //Random picking
       var random = randomNumber(gifsDisplayed, length); // Create a random number that's not in this array
@@ -452,15 +484,14 @@ var search = function search() {
       input = searchInput.value; // We get again the original query
       input = input.replace(/\s+/g, '+'); // Now we replace spaces with + for the query
       var uri = apiURIStart + input + apiURLKey;
-      console.log(uri);
-
+      //console.log(uri);
       var get = new Get(uri, listBuild);
       get.send();
       changeTimer = false;
     }, 300);
     //console.log(searchInput.value);
   } else {
-      console.log("Trop petit, minimum requis: 3 caractères");
+      // console.log("Trop petit, minimum requis: 3 caractères");
     }
 };
 searchInput.addEventListener('input', function () {
@@ -502,8 +533,8 @@ slider.noUiSlider.on('update', function (values, handle) {
     pageLoaded++;
   } else {
     GIFS_ON_PAGE = Math.round(parseInt(values));
-    LAST_GIFS_ON_PAGE = GIFS_PER_LINE;
-    console.log(GIFS_ON_PAGE);
+    LAST_GIFS_ON_PAGE = GIFS_ON_PAGE;
+    // console.log(GIFS_ON_PAGE);
     display();
   }
 });
@@ -550,7 +581,7 @@ inscriptionSubmit.addEventListener('click', function (event) {
     password: userPasswordDiv.value
   };
   var creation = function creation(data) {
-    console.log(data);
+    // console.log(data);
     switch (data.created) {
       case true:
         Velocity( //We make the button login disappear
@@ -623,12 +654,12 @@ loginSubmit.addEventListener('click', function (event) {
     userID: userIDLoginDiv.value,
     password: userPasswordLoginDiv.value
   };
-  console.log(credentials);
+  // console.log(credentials);
   var login = function login(data) {
-    console.log(data);
+    // console.log(data);
     switch (data.logged) {
       case true:
-        console.log('Logged in, gj');
+        // console.log('Logged in, gj');
         Velocity( //We make the button login disappear
         document.getElementById('login'), "fadeOut", {
           duration: 100
@@ -675,7 +706,7 @@ favGifsButton.addEventListener('click', function (e) {
   e.preventDefault();
   var uri = gifsUri;
   var callback = function callback(data) {
-    GIFS_ON_PAGE = parseInt(data.data.length); // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
+    GIFS_ON_PAGE = 200; // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
     listBuild(data);
   };
   var getFavGifs = new Get(uri, callback);
@@ -688,7 +719,7 @@ var logoutPop = document.getElementById('logout');
 logoutPop.addEventListener('click', function (e) {
   e.preventDefault();
   var logoutPost = new Post('/account/logout', function (data) {
-    console.log(data);
+    // console.log(data);
     Velocity(loginPop, "fadeIn", {
       duration: 100
     });
@@ -711,7 +742,7 @@ logoutPop.addEventListener('click', function (e) {
 
 /* ****** Tcheck at page load if already a session ****** */
 var getLogged = new Get('/account/logged', function (data) {
-  console.log(data);
+  // console.log(data);
   if (data.userName) {
     //Hiding the login and the sign in buttons
     Velocity(loginPop, "fadeOut", {
@@ -735,5 +766,4 @@ var getLogged = new Get('/account/logged', function (data) {
 
 getLogged.send();
 
-//CORRECTION NEEDED WHEN LESS GIFS THAN WE WANT
 //CORRECTION NEEDED FOR 1 GIFS, LAST OF THE LIST NOT DISPLAYED

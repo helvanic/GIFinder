@@ -72,6 +72,9 @@ class Gif extends Frame{
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav"></img>
+            </div>
           </div>
         </div>
           `
@@ -91,6 +94,9 @@ class Gif extends Frame{
             </div>
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
+            </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav"></img>
             </div>
           </div>
         </div>
@@ -112,6 +118,9 @@ class Gif extends Frame{
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav"></img>
+            </div>
           </div>
         </div>
           `
@@ -131,6 +140,9 @@ class Gif extends Frame{
             </div>
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
+            </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav"></img>
             </div>
           </div>
         </div>
@@ -153,7 +165,7 @@ class Gif extends Frame{
               <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
             <div class="imgWrapper delete">
-              <img src="../img/delete.png" alt="fav" class="fav"></img>
+              <img src="../img/delete.png" alt="fav"></img>
             </div>
           </div>
         </div>
@@ -175,6 +187,9 @@ class Gif extends Frame{
             <div class="imgWrapper">
               <img src="../img/fav.png" alt="fav" class="fav"></img>
             </div>
+            <div class="imgWrapper delete">
+              <img src="../img/delete.png" alt="fav"></img>
+            </div>
           </div>
         </div>
           `
@@ -192,8 +207,8 @@ class Gif extends Frame{
                 <textarea rows="1" cols="55">
                 </textarea>
             </div>
-            <div class="imgWrapper">
-              <img src="../img/fav.png" alt="fav" class="fav"></img>
+            <div class="imgWrapper delete del">
+              <img src="../img/delete.png" alt="fav"></img>
             </div>
           </div>
         </div>
@@ -323,83 +338,109 @@ let overlayListeners = function(){
 
   for(let i=0;i<=(GIFS_ON_PAGE-1);i++){
     let gif = gifsDivs[i];
-    gif.addEventListener('mouseover', function(){
-        for(let j in currentOverlay){
+    if(gif){
+      gif.addEventListener('mouseover', function(){
+          for(let j in currentOverlay){
+            Velocity(
+              currentOverlay[j],
+              "fadeOut",
+              {
+                duration : 1
+              }
+            );
+            currentOverlay = [];
+          }
+          currentOverlay.push(this.parentNode.querySelectorAll('.overlay'));
           Velocity(
-            currentOverlay[j],
-            "fadeOut",
+            this.parentNode.querySelectorAll('.overlay'),
+            "fadeIn",
             {
-              duration : 1
+              duration : 200
             }
           );
-          currentOverlay = [];
-        }
-        currentOverlay.push(this.parentNode.querySelectorAll('.overlay'));
-        Velocity(
-          this.parentNode.querySelectorAll('.overlay'),
-          "fadeIn",
-          {
-            duration : 200
-          }
-        );
-        // console.log("You're hovering a div : ");
-        // console.log(this);
-      });
-      //Link part :
-      let link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
-      link.addEventListener('click', function(){
-        let textarea = this.parentNode.querySelectorAll('textarea')[0];
-        let downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
-        console.log(downloadUrl);
-        textAppear(textarea, function(){
-          textarea.innerHTML = ""+downloadUrl;
-          textarea.select();
-        }, 200);
-      });
+          // console.log("You're hovering a div : ");
+          // console.log(this);
+        });
 
-      //Download part is directly done in html
+        //Link part :
+        let link = gif.parentNode.querySelectorAll('.overlay .imgWrapper .link')[0];
+        link.addEventListener('click', function(){
+          let textarea = this.parentNode.querySelectorAll('textarea')[0];
+          let downloadUrl = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+          // console.log(downloadUrl);
+          textAppear(textarea, function(){
+            textarea.innerHTML = ""+downloadUrl;
+            textarea.select();
+          }, 200);
+        });
 
-      //Favorite PART
-      let favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
-      favorite.addEventListener('click', function(){
-        //console.log(this.parentNode.parentNode.parentNode);
-        let gifInfo = {
-          "fixed_height" : {
-            url :this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
-          },
-          "fixed_height_small" : {
-            url : this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
-          },
-          "original":  this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href
-        }
-        let adding = function(data){
-          if(data.added){
-            console.log('Success !');
-          }else{
-            console.log("Fail");
-          }
-        }
-        let postFav = new Post(gifsUri, adding, gifInfo);
-        postFav.send();
+        //Download part is directly done in html
 
-        // Now we hide the button
-        Velocity(
-          this.parentNode,
-          "fadeOut",
-          {
-            duration : 300
-          }
-        );
-        // And we show the delete button (to remove the favorite)
-        Velocity(
-          this.parentNode.parentNode.querySelectorAll('.delete')[0],
-          "fadeIn",
-          {
-            duration : 300,
-            delay : 200
-          }
-        );
-      });
+        //Favorite PART
+        let favorite = gif.parentNode.querySelectorAll('.overlay .imgWrapper .fav')[0];
+        if(favorite){
+          favorite.addEventListener('click', function(){
+            //console.log(this.parentNode.parentNode.parentNode);
+            let gifInfo = {
+              "fixed_height" : {
+                url :this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+              },
+              "fixed_height_small" : {
+                url : this.parentNode.parentNode.parentNode.querySelectorAll('img')[0].src
+              },
+              "original":  {
+                url :this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href
+              }
+            }
+            let adding = function(data){
+              if(data.added){
+                console.log('Success !');
+              }else{
+                console.log("Fail");
+              }
+            }
+            let postFav = new Post(gifsUri, adding, gifInfo);
+            postFav.send();
+
+            // Now we hide the button
+            Velocity(
+              this.parentNode,
+              "fadeOut",
+              {
+                duration : 300
+              }
+            );
+            // And we show the delete button (to remove the favorite)
+            Velocity(
+              this.parentNode.parentNode.querySelectorAll('.delete')[0],
+              "fadeIn",
+              {
+                duration : 300,
+                delay : 200
+              }
+            );
+          });
+        }else{
+          let deleteButton = link.parentNode.parentNode.querySelectorAll('.del')[0];;
+          //  console.log(deleteButton);
+          deleteButton.addEventListener('click', function(e){
+            e.preventDefault();
+            let uri = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+            let deleteGifPost = new Post('/account/delete/gif', function(data){
+          //    console.log(data);
+              if(data.deleted){
+                let parentGif = deleteButton.parentNode.parentNode; // This is the .gif element containing the button
+                parentGif.parentNode.removeChild(parentGif);
+                //Little explanation : We need to get the parent Element of the .gif div (which is #gallery) in order to remove its own child.
+                //DOM Won't let an element commit suicide, but will allow a parent element to remove one of its children.
+              }
+            }, {
+              gifUri : uri
+            });
+            deleteGifPost.send();
+          });
+        }
+    }
   }
 }
 
@@ -431,8 +472,11 @@ let display = function(){
   // console.log(gifsList);
 
   for(let i=0; i<=(GIFS_ON_PAGE-1); i++){
+  //  console.log(GIFS_ON_PAGE);
     if(length<=(GIFS_ON_PAGE)){ //No need for random because it doesn't even fully populate the page.
-      document.getElementById('gallery').innerHTML+=gifsList[i].render();
+      if(i<=length-1){//If i is between 0 and length
+        document.getElementById('gallery').innerHTML+=gifsList[i].render();
+      }
     }else{//Random picking
       let random = randomNumber(gifsDisplayed, length); // Create a random number that's not in this array
       gifsDisplayed.push(random);
@@ -485,15 +529,14 @@ let search = function(){
          input = searchInput.value; // We get again the original query
          input = input.replace(/\s+/g, '+'); // Now we replace spaces with + for the query
          let uri = apiURIStart+input+apiURLKey;
-         console.log(uri);
-
+         //console.log(uri);
          let get = new Get(uri, listBuild);
          get.send();
          changeTimer = false;
        },300);
     //console.log(searchInput.value);
   }else{
-    console.log("Trop petit, minimum requis: 3 caractères");
+    // console.log("Trop petit, minimum requis: 3 caractères");
   }
 }
 searchInput.addEventListener('input', function(){
@@ -536,8 +579,8 @@ slider.noUiSlider.on('update', function( values, handle ) {
     pageLoaded++;
   }else{
     GIFS_ON_PAGE = Math.round(parseInt(values));
-    LAST_GIFS_ON_PAGE = GIFS_PER_LINE;
-    console.log(GIFS_ON_PAGE);
+    LAST_GIFS_ON_PAGE = GIFS_ON_PAGE;
+    // console.log(GIFS_ON_PAGE);
     display();
   }
 });
@@ -598,7 +641,7 @@ inscriptionSubmit.addEventListener('click', function(event){
     password : userPasswordDiv.value
   }
   let creation = function(data){
-    console.log(data);
+    // console.log(data);
     switch(data.created){
       case true :
         Velocity(//We make the button login disappear
@@ -702,12 +745,12 @@ loginSubmit.addEventListener('click', function(event){
     userID : userIDLoginDiv.value,
     password : userPasswordLoginDiv.value
   }
-  console.log(credentials);
+  // console.log(credentials);
   let login = function(data){
-    console.log(data);
+    // console.log(data);
     switch(data.logged){
       case true :
-        console.log('Logged in, gj');
+        // console.log('Logged in, gj');
         Velocity(//We make the button login disappear
           document.getElementById('login'),
           "fadeOut",
@@ -772,7 +815,7 @@ favGifsButton.addEventListener('click', function(e){
   e.preventDefault();
   let uri = gifsUri;
   let callback = function(data){
-    GIFS_ON_PAGE = parseInt(data.data.length); // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
+    GIFS_ON_PAGE = 200; // LAST_GIFS_ON_PAGE will allow to return to previous value on search.
     listBuild(data);
   }
   let getFavGifs = new Get(uri, callback);
@@ -786,7 +829,7 @@ let logoutPop = document.getElementById('logout');
 logoutPop.addEventListener('click', function(e){
   e.preventDefault();
   let logoutPost = new Post('/account/logout', function(data){
-    console.log(data);
+    // console.log(data);
     Velocity(
       loginPop,
       "fadeIn",
@@ -829,7 +872,7 @@ logoutPop.addEventListener('click', function(e){
 
 /* ****** Tcheck at page load if already a session ****** */
 let getLogged = new Get('/account/logged', function(data){
-  console.log(data);
+  // console.log(data);
   if(data.userName){
     //Hiding the login and the sign in buttons
     Velocity(
@@ -873,6 +916,4 @@ let getLogged = new Get('/account/logged', function(data){
 
 getLogged.send();
 
-
-//CORRECTION NEEDED WHEN LESS GIFS THAN WE WANT
 //CORRECTION NEEDED FOR 1 GIFS, LAST OF THE LIST NOT DISPLAYED

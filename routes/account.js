@@ -123,7 +123,7 @@ router.post('/login', function(req,res){
 		}else{
 			if(bcrypt.compareSync(req.body.password,user.userPassword)){
         req.session.user = user; //set-cookie : session="{email : '...', etc...}"
-        res.json({
+				res.json({
           logged : true,
           user : {
             userName : user.userName,
@@ -155,8 +155,34 @@ router.get('/gifs', function(req, res){
   });
 });
 
+router.post('/delete/gif', function(req, res){
+	//console.log(req.body.gifUri);
+	User.findOne({'userName' : req.session.user.userName}, function(err, user){
+		if(err){
+			console.log(err);
+			res.json({
+				err : err
+			});
+		}else{
+			for(var i = user.gifs.length - 1; i >= 0; i--) {
+			    if(user.gifs[i].images.original.url === req.body.gifUri) {
+			       user.gifs.splice(i, 1);
+						 user.save(function(err){
+							 if(err){
+								 console.log(err);
+							 }else{
+								 res.json({
+			 							deleted : true
+			 					 });
+							 }
+						 });
+			    }
+			}
+		}
+	});
+});
+
 router.post('/gifs', function(req, res){
-  console.log(req.body);
   User.findOne({'userName' : req.session.user.userName}, function(err, user){
     if(err){
       res.json({
@@ -179,6 +205,8 @@ router.post('/gifs', function(req, res){
   });
 });
 
+
+
 //Useful for the client to ask if he's logged
 router.get('/logged', function(req, res){
 	if(req.session && req.session.user){
@@ -194,9 +222,7 @@ router.get('/logged', function(req, res){
 
 //Need a logout !!!!!!
 router.post('/logout', function(req, res){
-		console.log(req.session);
 		req.session.destroy();
-		console.log(req.session);
 		res.json({
 			loggedOut : true
 		});

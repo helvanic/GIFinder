@@ -869,6 +869,9 @@ footer a {
 .delete:hover {
   background-color: #E64C66 !important; }
 
+.delete.del {
+  display: block; }
+
 .gif .overlay textarea {
   display: none;
   position: relative;

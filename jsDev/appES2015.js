@@ -426,11 +426,12 @@ let overlayListeners = function(){
           deleteButton.addEventListener('click', function(e){
             e.preventDefault();
             let uri = this.parentNode.parentNode.querySelectorAll('.imgWrapper .downloadUrl')[0].href;
+            let parentGif = deleteButton.parentNode.parentNode; // This is the .gif element containing the button
+            parentGif.parentNode.removeChild(parentGif);
             let deleteGifPost = new Post('/account/delete/gif', function(data){
           //    console.log(data);
               if(data.deleted){
-                let parentGif = deleteButton.parentNode.parentNode; // This is the .gif element containing the button
-                parentGif.parentNode.removeChild(parentGif);
+                console.log("Gif successfully deleted");
                 //Little explanation : We need to get the parent Element of the .gif div (which is #gallery) in order to remove its own child.
                 //DOM Won't let an element commit suicide, but will allow a parent element to remove one of its children.
               }

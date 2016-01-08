@@ -665,7 +665,7 @@ inscriptionSubmit.addEventListener('click', function(event){
             duration : 100
           }
         );
-        document.getElementById('logged').innerHTML = "Logged as "+credentials.userID;
+        document.getElementById('logged').innerHTML = credentials.userID;
         Velocity(//We display "Logged as username"
           document.getElementById('logged').parentNode,
           "fadeIn",
@@ -780,7 +780,7 @@ loginSubmit.addEventListener('click', function(event){
             duration : 600
           }
         );
-        document.getElementById('logged').innerHTML = "Logged as "+credentials.userID;
+        document.getElementById('logged').innerHTML = credentials.userID;
         Velocity(//We display "Logged as username"
           document.getElementById('logged').parentNode,
           "fadeIn",
@@ -896,7 +896,7 @@ let getLogged = new Get('/account/logged', function(data){
         duration : 1
       }
     );
-    document.getElementById('logged').innerHTML = "Logged as "+data.userName;
+    document.getElementById('logged').innerHTML = data.userName;
     Velocity(
       document.getElementById('logged').parentNode,
       "fadeIn",

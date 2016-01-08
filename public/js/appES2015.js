@@ -596,7 +596,7 @@ inscriptionSubmit.addEventListener('click', function (event) {
         inscription, "fadeOut", {
           duration: 100
         });
-        document.getElementById('logged').innerHTML = "Logged as " + credentials.userID;
+        document.getElementById('logged').innerHTML = credentials.userID;
         Velocity( //We display "Logged as username"
         document.getElementById('logged').parentNode, "fadeIn", {
           duration: 600
@@ -677,7 +677,7 @@ loginSubmit.addEventListener('click', function (event) {
         document.getElementById('loginForm'), "fadeOut", {
           duration: 600
         });
-        document.getElementById('logged').innerHTML = "Logged as " + credentials.userID;
+        document.getElementById('logged').innerHTML = credentials.userID;
         Velocity( //We display "Logged as username"
         document.getElementById('logged').parentNode, "fadeIn", {
           duration: 600
@@ -754,7 +754,7 @@ var getLogged = new Get('/account/logged', function (data) {
     Velocity(logoutPop, "fadeIn", {
       duration: 1
     });
-    document.getElementById('logged').innerHTML = "Logged as " + data.userName;
+    document.getElementById('logged').innerHTML = data.userName;
     Velocity(document.getElementById('logged').parentNode, "fadeIn", {
       duration: 300
     });
